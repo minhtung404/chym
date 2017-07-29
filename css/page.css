@@ -65,7 +65,6 @@ video {
   font-size: 1.3rem;
   background: rgba(0,0,0,0.5);
   
-  color: red;
   border-radius: 3px; 
   cursor: pointer;
   transition: .3s background;
@@ -78,7 +77,12 @@ video {
   #polina .button { 
     margin-top: 60%;
    
-  }    
+  }
+  #polina .clsAfterVideo { 
+    margin-top: 60%;
+   
+  }
+   
 }
 @media screen and (max-device-width: 800px) {
   html { background: url(https://thenewcode.com/assets/images/polina.jpg) #000 no-repeat center center fixed; }
