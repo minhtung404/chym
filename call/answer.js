@@ -55,7 +55,7 @@ $(document).ready(function(){
         });
 
      var socketId = getUrlParameter('idNguoiChoi');
-     var  sttCamera = getUrlParameter('idNguoiChoi');
+     var  sttCamera = getUrlParameter('stt');
      var  tenNguoiChoi = getUrlParameter('tenNguoiChoi');
      var  tenTeam = getUrlParameter('tenTeam');
      
