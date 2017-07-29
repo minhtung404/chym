@@ -28,73 +28,62 @@ function playStream(idVideoTag, stream) {
     video.play();
 }
 
-var confidStunTwili = {'iceServers': 
-    [{"url":"stun:global.stun.twilio.com:3478?transport=udp"},
-    {"url":"turn:global.turn.twilio.com:3478?transport=udp","username":"0c498ca5e28778a8df0f9c64e9e14725e6a716faa56302a3d171de49b7a65143","credential":"Fe1R00p/o7fesG/EPcgFL4h14yviMkozfHDtkV3uf90="},
-    {"url":"turn:global.turn.twilio.com:3478?transport=tcp","username":"0c498ca5e28778a8df0f9c64e9e14725e6a716faa56302a3d171de49b7a65143","credential":"Fe1R00p/o7fesG/EPcgFL4h14yviMkozfHDtkV3uf90="},
-    {"url":"turn:global.turn.twilio.com:443?transport=tcp","username":"0c498ca5e28778a8df0f9c64e9e14725e6a716faa56302a3d171de49b7a65143","credential":"Fe1R00p/o7fesG/EPcgFL4h14yviMkozfHDtkV3uf90="}]} /* Sample servers, please use appropriate ones */
 
-var peer = new Peer({
 
-   host:'peerservermemo.herokuapp.com',
-   secure:true,
-   port:443,
-   debug:3,
-   config: confidStunTwili
-});
 
 
 
 $(document).ready(function(){
-    
-    
-    // Index.html
-    var idNguoiChoi = getUrlParameter('idNguoiChoi');
-    var tenNguoiChoi = getUrlParameter('tenNguoiChoi');
-    var tenTeam = getUrlParameter('tenTeam');
-    
-    
-    var socketId;
-    
-    var objThongTinNguoiChoi={idNguoiChoi:idNguoiChoi,tenNguoiChoi:tenNguoiChoi,tenTeam:tenTeam};
-   
-    
-    setTimeout(function(){ 
                
-                openStream().then(stream=>{
-                        playStream('bgvid',stream)
-                        // mo duoc camera moi gui yeu cau
-                         if(idNguoiChoi){
-                                if(idNguoiChoi!=""){
-                                    socket.emit("mb-yeu-cau-mo-camera",objThongTinNguoiChoi);
-                                }
-                             }           
-              });
+    
+    var confidStunTwili = {'iceServers': 
+    [{"url":"stun:global.stun.twilio.com:3478?transport=udp"},
+    {"url":"turn:global.turn.twilio.com:3478?transport=udp","username":"0c498ca5e28778a8df0f9c64e9e14725e6a716faa56302a3d171de49b7a65143","credential":"Fe1R00p/o7fesG/EPcgFL4h14yviMkozfHDtkV3uf90="},
+    {"url":"turn:global.turn.twilio.com:3478?transport=tcp","username":"0c498ca5e28778a8df0f9c64e9e14725e6a716faa56302a3d171de49b7a65143","credential":"Fe1R00p/o7fesG/EPcgFL4h14yviMkozfHDtkV3uf90="},
+    {"url":"turn:global.turn.twilio.com:443?transport=tcp","username":"0c498ca5e28778a8df0f9c64e9e14725e6a716faa56302a3d171de49b7a65143","credential":"Fe1R00p/o7fesG/EPcgFL4h14yviMkozfHDtkV3uf90="}]} /* Sample servers, please use appropriate ones */
+    
+        //openCamera();
+        var peer = new Peer({
+        
+           host:'peerservermemo.herokuapp.com',
+           secure:true,
+           port:443,
+           debug:3,
+           config: confidStunTwili
+        });
+
+     var socketId = getUrlParameter('socketId');
+     var  sttCamera = getUrlParameter('stt');
+     var  tenNguoiChoi = getUrlParameter('tenNguoiChoi');
+     var  tenTeam = getUrlParameter('tenTeam');
+     
+     
+     
+    peer.on('open',function(codePeer){
+         var codePeer = codePeer;
+         console.log(codePeer);
+          console.log(socketId);
+          console.log(sttCamera);
+          var objPeerCnn = {socketId:socketId,sttCamera:sttCamera,codePeer:codePeer};  
+          socket.emit("subadmin-status-camera",objPeerCnn);   
+             
             
-    }, 2000);
-    
-    
-    
-    //
-    socket.on("server-gui-stt-camera-cho-nguoi-choi",function(data){
-                if(data.sttCamera=="1"){
-                    var codePeer = data.codePeer;
-                    console.log(codePeer);
-                    openStream().then(stream=>{
-                        peer.call(codePeer,stream);    
-                     });
-                    $(".clsAfterVideo").css({"color":"green"});
-                    $('.clsAfterVideo').html('<i class="fa fa-connectdevelop animated infinite flipOutY" aria-hidden="true"></i>  Trực tiếp...'); 
-                } 
-                else{
-                    $(".clsAfterVideo").css({"color":"red"});
-                    $('.clsAfterVideo').html('<i class="fa fa-connectdevelop animated infinite flipOutY" aria-hidden="true"></i>  Kết nối bị từ chối, bạn chưa được sử dụng tác vụ này!');
-                }
     });
     
+    // Nguoi nhan
+    peer.on("call",call=>{
+        openStream().then(stream=>{
+          call.answer(stream);
+          // Tong dai khong can stream chinh minh
+          //playStream('localStream',stream)
+        //  console.log(stream);
+          call.on('stream',dataStream=>{
+            playStream('traLoi',dataStream)
+          //  console.log("dataSteam"+dataStream);
+          });
+
+        });
+    });
     
-    
-    // video.team.html
-    
-             
+        
 });
