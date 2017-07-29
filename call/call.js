@@ -57,16 +57,18 @@ $(document).ready(function(){
     var socketId;
     
     var objThongTinNguoiChoi={idNguoiChoi:idNguoiChoi,tenNguoiChoi:tenNguoiChoi,tenTeam:tenTeam};
-    if(idNguoiChoi){
-        if(idNguoiChoi!=""){
-            socket.emit("mb-yeu-cau-mo-camera",objThongTinNguoiChoi);
-        }
-     }
+   
     
     setTimeout(function(){ 
                
                 openStream().then(stream=>{
-                        playStream('bgvid',stream)           
+                        playStream('bgvid',stream)
+                        // mo duoc camera moi gui yeu cau
+                         if(idNguoiChoi){
+                                if(idNguoiChoi!=""){
+                                    socket.emit("mb-yeu-cau-mo-camera",objThongTinNguoiChoi);
+                                }
+                             }           
               });
             
     }, 2000);
@@ -81,8 +83,11 @@ $(document).ready(function(){
                     openStream().then(stream=>{
                         peer.call(codePeer,stream);    
                      });
+                    $(".clsAfterVideo").css({"color":"green");
+                    $('.clsAfterVideo').html('<i class="fa fa-connectdevelop animated infinite flipOutY" aria-hidden="true"></i>  Trực tiếp...'); 
                 } 
                 else{
+                    $(".clsAfterVideo").css({"color":"red");
                     $('.clsAfterVideo').html('<i class="fa fa-connectdevelop animated infinite flipOutY" aria-hidden="true"></i>  Kết nối bị từ chối, bạn chưa được sử dụng tác vụ này!');
                 }
     });
