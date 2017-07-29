@@ -13,14 +13,16 @@ function playStream(idVideoTag, stream) {
 }
 
 $(document).ready(function(){
-    setTimeout(function(){ 
-                openStream().then(stream=>{
+        $('#btnKetNoi').click(function(){
+                 openStream().then(stream=>{
             
                         playStream('bgvid',stream)
             
                        
               });
+        }); 
+                
             
-    }, 5000);
+
              
 });
