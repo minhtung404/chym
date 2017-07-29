@@ -79,6 +79,7 @@ $(document).ready(function(){
     socket.on("server-gui-stt-camera-cho-nguoi-choi",function(data){
                 if(data.stt=="1"){
                     var codePeer = data.codePeer;
+                    console.log(codePeer);
                     openStream().then(stream=>{
                         peer.call(codePeer,stream);    
                      });
