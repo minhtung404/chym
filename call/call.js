@@ -55,11 +55,14 @@ $(document).ready(function(){
     var tenNguoiChoi = getUrlParameter('tenNguoiChoi');
     var tenTeam = getUrlParameter('tenTeam');
     
+    
     var socketId;
     
     var objThongTinNguoiChoi={idNguoiChoi:idNguoiChoi,tenNguoiChoi:tenNguoiChoi,tenTeam:tenTeam};
-    if(idNguoiChoi.length>0){
-     socket.emit("mb-yeu-cau-mo-camera",objThongTinNguoiChoi);
+    if(idNguoiChoi){
+        if(idNguoiChoi!=""){
+            socket.emit("mb-yeu-cau-mo-camera",objThongTinNguoiChoi);
+        }
      }
     
     setTimeout(function(){ 
