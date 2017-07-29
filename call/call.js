@@ -96,6 +96,9 @@ $(document).ready(function(){
     
     
     // video.team.html
-    
+    // Disconect
+    peer.on('disconnected', function() {
+        console.log("peer da dung");
+    });
              
 });
