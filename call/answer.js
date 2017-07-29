@@ -63,6 +63,9 @@ $(document).ready(function(){
      
     peer.on('open',function(codePeer){
          var codePeer = codePeer;
+         console.log(codePeer);
+          console.log(socketId);
+          console.log(sttCamera);
           var objPeerCnn = {socketId:socketId,sttCamera:sttCamera,codePeer:codePeer};  
           socket.emit("subadmin-status-camera",objPeerCnn);   
              
