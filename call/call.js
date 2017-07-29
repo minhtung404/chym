@@ -58,7 +58,7 @@ $(document).ready(function(){
     var socketId;
     
     var objThongTinNguoiChoi={idNguoiChoi:idNguoiChoi,tenNguoiChoi:tenNguoiChoi,tenTeam:tenTeam};
-    if(idNguoiChoi.length()>0){
+    if(idNguoiChoi.length>0){
      socket.emit("mb-yeu-cau-mo-camera",objThongTinNguoiChoi);
      }
     
