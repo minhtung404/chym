@@ -95,10 +95,12 @@ $(document).ready(function(){
     
     
     
-    // video.team.html
+    
     // Disconect
     peer.on('disconnected', function() {
-        console.log("peer da dung");
+        $(".clsAfterVideo").css({"color":"red"});
+        $('.clsAfterVideo').html('<i class="fa fa-connectdevelop animated infinite flipOutY" aria-hidden="true"></i>  Đã dừng kết nối!');
     });
+    
              
 });
