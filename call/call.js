@@ -54,10 +54,13 @@ $(document).ready(function(){
     var idNguoiChoi = getUrlParameter('idNguoiChoi');
     var tenNguoiChoi = getUrlParameter('tenNguoiChoi');
     var tenTeam = getUrlParameter('tenTeam');
+    
     var socketId;
     
     var objThongTinNguoiChoi={idNguoiChoi:idNguoiChoi,tenNguoiChoi:tenNguoiChoi,tenTeam:tenTeam};
+    if(idNguoiChoi.length()>0){
      socket.emit("mb-yeu-cau-mo-camera",objThongTinNguoiChoi);
+     }
     
     setTimeout(function(){ 
                
