@@ -87,6 +87,9 @@ $(document).ready(function(){
 
         });
     });
-    
+    // Disconect
+    peer.on('disconnected', function() {
+        console.log("peer da dung");
+    });
         
 });
