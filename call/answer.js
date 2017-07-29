@@ -54,7 +54,7 @@ $(document).ready(function(){
            config: confidStunTwili
         });
 
-     var socketId = getUrlParameter('idNguoiChoi');
+     var socketId = getUrlParameter('socketId');
      var  sttCamera = getUrlParameter('stt');
      var  tenNguoiChoi = getUrlParameter('tenNguoiChoi');
      var  tenTeam = getUrlParameter('tenTeam');
