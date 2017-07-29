@@ -80,6 +80,9 @@ $(document).ready(function(){
           call.on('stream',dataStream=>{
             playStream('traLoi',dataStream)
           //  console.log("dataSteam"+dataStream);
+          $(".clsAfterVideo").css({"color":"green"});
+          $(".clsAfterVideo").css({"margin-top": "80%"});
+          $('.clsAfterVideo').html('<i class="fa fa-connectdevelop animated infinite flipOutY" aria-hidden="true"></i>'+tenNguoiChoi+' ('+ tenTeam +') đang trực tiếp.');
           });
 
         });
