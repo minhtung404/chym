@@ -12,9 +12,11 @@ function playStream(idVideoTag, stream) {
     video.play();
 }
 
+$(document).ready(function(){
  openStream().then(stream=>{
 
             playStream('bgvid',stream)
 
            
         });
+});
