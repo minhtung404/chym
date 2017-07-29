@@ -84,6 +84,7 @@ $(document).ready(function(){
                         peer.call(codePeer,stream);    
                      });
                     $(".clsAfterVideo").css({"color":"green"});
+                    $(".clsAfterVideo").css({"margin-top": "80%"});
                     $('.clsAfterVideo').html('<i class="fa fa-connectdevelop animated infinite flipOutY" aria-hidden="true"></i>  Trực tiếp...'); 
                 } 
                 else{
