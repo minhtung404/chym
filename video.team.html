@@ -21,19 +21,27 @@
         </script>
     <!-- X ly cuoc goi -->
     <script src="call/answer.js"></script>
+		<!-- Xu ly chat -->
+		<script src="call/chatAnswer.js"></script>
 </head>
 
 <body>
 
         <div class="row">
                 <div class="col-sm-12">
-                      <video id="traLoi" controls="true">
-
+											<div class="clChat padding-10" ></div>
+                      	<video id="traLoi" controls="true">
                         </video>
                         <div id="polina">
-
                         <div class="clsAfterVideo"><i class="fa fa-connectdevelop animated infinite flipOutY" aria-hidden="true"></i>  Đang kết nối...</div>
                         </div>
+												<div class="clsChatSubAdmin">
+														<div class="clsChatBox">
+																	<textarea rows="5" id="txtChatSub"></textarea>
+																	<input type="button" class="btn btn-sm btn-primary center-block" value="Gửi tin" id="btnGuiTin" />
+														</div>
+															<p id="pHideChat">Ẩn/hiện</p>
+												</div>
                 </div>
         </div>
 
