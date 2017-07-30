@@ -46,6 +46,25 @@ video {
         max-height: 200px;
 }
 
+.clsChatSubAdmin{
+      position: absolute;
+      width: 100%;
+      position: fixed;
+      bottom: 50px;
+}
+.clsChatSubAdmin p{
+  cursor: pointer;
+}
+.clsChatBox textarea{
+  background: transparent;
+  color: white;
+  width: 100%;
+  padding: 2%;
+  resize: none;
+}
+
+
+
 #polina {
     position: absolute;
   font-family: Agenda-Light, Agenda Light, Agenda, Arial Narrow, sans-serif;
@@ -113,4 +132,9 @@ video {
 @media screen and (max-device-width: 800px) {
   html { background: url(https://thenewcode.com/assets/images/polina.jpg) #000 no-repeat center center fixed; }
 
+}
+
+/*chung*/
+.padding-10{
+  padding-right: 100%;
 }
