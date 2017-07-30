@@ -11,6 +11,7 @@ function htmlDecode(value){
 
 
 $(document).ready(function(){
+    $('.clChat').hide();
       $('#pHideChat').click(function(){
             $('.clsChatBox').toggle();
       })
