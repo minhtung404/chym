@@ -14,7 +14,7 @@ $(document).ready(function(){
           $('.clChat').hide();
         socket.on('server-gui-chat-camera-nguoi-choi',function(data){
           var stringSend = data.stringSend;
-          if((stringSend==".")||(stringSend=="")){
+          if((stringSend=="cls")){
             $('.clChat').hide();
           }
           else{
