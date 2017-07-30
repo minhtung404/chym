@@ -20,6 +20,31 @@ video {
 .stopfade {
    opacity: .5;
 }
+.clChat{
+      position: absolute;
+      right:-20%;
+      padding-left: 5%;
+      padding-right: 20%;
+      padding-top: 2%;
+      padding-bottom: 2%;
+      margin-top: 10%;
+      background: green;
+      color: #fff;
+      font-weight: bold;
+      max-height: 200px;
+      overflow: hidden;
+      font-size: 1em;
+      display: inline-block;
+      -moz-border-bottom-left-radius: 10px;
+      -moz-border-top-left-radius: 10px;
+       border-bottom-left-radius: 10px;
+       border-top-left-radius: 10px;
+
+}
+.clChat img{
+        max-width: 200px;
+        max-height: 200px;
+}
 
 #polina {
     position: absolute;
@@ -80,7 +105,7 @@ video {
   }
   #polina .clsAfterVideo {
     margin-top: 60%;
-  
+
 
   }
 
