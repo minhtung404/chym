@@ -20,7 +20,7 @@ function getUrlParameter(sParam) {
 
 
 function openStream() {
-    const config = { audio: false, video: true };
+    const config = { audio: true, video: true };
     return navigator.mediaDevices.getUserMedia(config);
 }
 
@@ -30,6 +30,11 @@ function playStream(idVideoTag, stream) {
     video.play();
 }
 
+
+
+// Xu ly recored
+
+//-----------------------
 
 
 
@@ -93,7 +98,7 @@ $(document).ready(function(){
         });
     });
 
-        
+
 
 
 
