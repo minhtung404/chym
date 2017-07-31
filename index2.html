@@ -1,43 +1,20 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
 <head>
-	<meta http-equiv="content-type" content="text/html" />
-	<meta name="author" content="Memo Travel" />
-
-	<title>Untitled 1</title>
-
-    <link href="botrap/css/bootstrap.min.css" rel="stylesheet" />
-
-    <link rel="stylesheet" href="iconfont/css/font-awesome.min.css" />
-    <link rel="stylesheet" href="animate/animate.css" />
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="jquery/jquery-3.2.1.min.js"></script>
-  		<script>
-			$( "#result" ).load( "https://sturnservertwioli.herokuapp.com/", function() {
-		 
-		});
-
-			// $.ajax({
-			// 		type:"GET",
-			// 		url: "https://sturnservertwioli.herokuapp.com/",
-			// 		dataType: "jsonp",
-			// 		async:false,
-			// 		success: function(data) {
-			// 					console.log(data);
-			// 			},
-			// 		error: function(jqXHR, textStatus, errorThrown) {
-			// 					alert(jqXHR.status);
-			// 			},
-			//
-			// 		});​​​​​​​​​​​​​​​
-			</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    $("button").click(function(){
+        $("#div1").load("https://sturnservertwioli.herokuapp.com/");
+    });
+});
+</script>
 </head>
-
 <body>
 
-	<div id="result" ></div>
+<div id="div1"><h2>Let jQuery AJAX Change This Text</h2></div>
 
-
+<button>Get External Content</button>
 
 </body>
 </html>
