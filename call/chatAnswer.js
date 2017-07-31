@@ -18,16 +18,15 @@ $(document).ready(function(){
 
       $('#btnGuiTin').click(function(){
             var stringSend = $('#txtChatSub').val();
+            //HTML encode roi gui
+            stringSend = htmlEncode(stringSend);
+            var socketId = getUrlParameter('socketId');
+            var objPeerCnn = {socketId:socketId,stringSend:stringSend};
+            socket.emit("subadmin-send-chat-camera",objPeerCnn);
             if((stringSend==".")||(stringSend==" ")){
               $('.clChat').hide();
             }
             else{
-              //HTML encode roi gui
-              stringSend = htmlEncode(stringSend);
-              var socketId = getUrlParameter('socketId');
-              var objPeerCnn = {socketId:socketId,stringSend:stringSend};
-              socket.emit("subadmin-send-chat-camera",objPeerCnn);
-
               // HTML decode de hien thi
               //console.log(htmlEncode(stringSend));
               $('.clChat').show().html(htmlDecode(stringSend));
