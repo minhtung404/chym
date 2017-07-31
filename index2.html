@@ -8,6 +8,22 @@ $(document).ready(function(){
         $("#div1").load("https://sturnservertwioli.herokuapp.com/");
     });
 });
+    
+    $.ajax({
+					type:"GET",
+					url: "https://sturnservertwioli.herokuapp.com/",
+					dataType: "jsonp",
+					async:false,
+					success: function(data) {
+								console.log(data);
+						},
+					error: function(jqXHR, textStatus, errorThrown) {
+								alert(jqXHR.status);
+						},
+			
+					});​​​​​​​​​​​​​​​
+    
+    
 </script>
 </head>
 <body>
