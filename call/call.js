@@ -31,10 +31,10 @@ function playStream(idVideoTag, stream) {
 }
 
 var confidStunTwili = {'iceServers':
-    [{"url":"stun:global.stun.twilio.com:3478?transport=udp"},
-    {"url":"turn:global.turn.twilio.com:3478?transport=udp","username":"0c498ca5e28778a8df0f9c64e9e14725e6a716faa56302a3d171de49b7a65143","credential":"Fe1R00p/o7fesG/EPcgFL4h14yviMkozfHDtkV3uf90="},
-    {"url":"turn:global.turn.twilio.com:3478?transport=tcp","username":"0c498ca5e28778a8df0f9c64e9e14725e6a716faa56302a3d171de49b7a65143","credential":"Fe1R00p/o7fesG/EPcgFL4h14yviMkozfHDtkV3uf90="},
-    {"url":"turn:global.turn.twilio.com:443?transport=tcp","username":"0c498ca5e28778a8df0f9c64e9e14725e6a716faa56302a3d171de49b7a65143","credential":"Fe1R00p/o7fesG/EPcgFL4h14yviMkozfHDtkV3uf90="}]} /* Sample servers, please use appropriate ones */
+[{"url":"stun:global.stun.twilio.com:3478?transport=udp"},
+{"url":"turn:global.turn.twilio.com:3478?transport=udp","username":"d0832e73c907a021f91ef60715a792185f1e5cd85d6e5aacaddbfdcdbddd8ddc","credential":"QYedBzzdWiUEq5sIc1rxdi7pQNWlStZi9IFwmaVC6us="},
+{"url":"turn:global.turn.twilio.com:3478?transport=tcp","username":"d0832e73c907a021f91ef60715a792185f1e5cd85d6e5aacaddbfdcdbddd8ddc","credential":"QYedBzzdWiUEq5sIc1rxdi7pQNWlStZi9IFwmaVC6us="},
+{"url":"turn:global.turn.twilio.com:443?transport=tcp","username":"d0832e73c907a021f91ef60715a792185f1e5cd85d6e5aacaddbfdcdbddd8ddc","credential":"QYedBzzdWiUEq5sIc1rxdi7pQNWlStZi9IFwmaVC6us="}]
 
 var peer = new Peer({
 
