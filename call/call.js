@@ -17,29 +17,10 @@ function getUrlParameter(sParam) {
 };
 
 
+
+
 function openStream() {
-var mangVideo = [];
-  //Lay danh sach camera
-  navigator.mediaDevices.enumerateDevices()
-          .then(function(devices) {
-
-                devices.forEach(function(device) {
-                  if(device.kind==="videoinput"){
-                    console.log(device.deviceId);
-                    mangVideo.push(device.deviceId);
-                  }
-
-
-                });
-                
-          })
-          .catch(function(err) {
-          console.log(err.name + ": " + err.message);
-});
-
-  //---------------------------------------------//
-
-    const config = { audio: false, video: { deviceId: mangVideo[2] } };
+    const config = { audio: false, video: true };
     return navigator.mediaDevices.getUserMedia(config);
 }
 
