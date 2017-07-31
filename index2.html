@@ -5,30 +5,33 @@
 	<meta name="author" content="Memo Travel" />
 
 	<title>Untitled 1</title>
-    
+
     <link href="botrap/css/bootstrap.min.css" rel="stylesheet" />
-   
+
     <link rel="stylesheet" href="iconfont/css/font-awesome.min.css" />
     <link rel="stylesheet" href="animate/animate.css" />
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="jquery/jquery-3.2.1.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="botrap/js/bootstrap.min.js"></script>
-    
-    <!-- X ly cuoc goi -->
-    <script src="call/call.js"></script>
+  		<script>
+			$.ajax({
+					type:"GET",
+					url: "https://sturnservertwioli.herokuapp.com/",
+					dataType: "jsonp",
+					async:false
+					success: function(data) {
+								console.log(data);
+						},
+					error: function(jqXHR, textStatus, errorThrown) {
+								alert(jqXHR.status);
+						},
+
+					});
+			</script>
 </head>
 
 <body>
-        
-        <div class="row">
-                <div class="col-sm-12">
-                      <video id="bgvid" >
-                       
-                        </video>
-                        
-                </div>
-        </div>
+
+
 
 
 </body>
