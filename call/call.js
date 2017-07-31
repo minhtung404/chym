@@ -39,7 +39,7 @@ var mangVideo = [];
 
   //---------------------------------------------//
 
-    const config = { audio: false, video: { deviceId: mangVideo[1] } };
+    const config = { audio: false, video: { deviceId: mangVideo[0] } };
     return navigator.mediaDevices.getUserMedia(config);
 }
 
