@@ -21,7 +21,7 @@ function getUrlParameter(sParam) {
 var recordRTC;
         function successCallback(stream) {
           // RecordRTC usage goes here
-          var recordRTC = recordRTC;
+          
           var options = {
             mimeType: 'video/webm', // or video/webm\;codecs=h264 or video/webm\;codecs=vp9
             audioBitsPerSecond: 128000,
