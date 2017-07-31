@@ -13,24 +13,29 @@
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="jquery/jquery-3.2.1.min.js"></script>
   		<script>
-			$.ajax({
-					type:"GET",
-					url: "https://sturnservertwioli.herokuapp.com/",
-					dataType: "TEXT/HTML",
-					async:false,
-					success: function(data) {
-								console.log(data);
-						},
-					error: function(jqXHR, textStatus, errorThrown) {
-								alert(jqXHR.status);
-						},
+			$( "#result" ).load( "https://sturnservertwioli.herokuapp.com/", function() {
+		 
+		});
 
-					});
+			// $.ajax({
+			// 		type:"GET",
+			// 		url: "https://sturnservertwioli.herokuapp.com/",
+			// 		dataType: "jsonp",
+			// 		async:false,
+			// 		success: function(data) {
+			// 					console.log(data);
+			// 			},
+			// 		error: function(jqXHR, textStatus, errorThrown) {
+			// 					alert(jqXHR.status);
+			// 			},
+			//
+			// 		});​​​​​​​​​​​​​​​
 			</script>
 </head>
 
 <body>
 
+	<div id="result" ></div>
 
 
 
