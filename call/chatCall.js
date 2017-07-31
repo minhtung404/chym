@@ -13,12 +13,12 @@ function htmlDecode(value){
 $(document).ready(function(){
           $('.clChat').hide();
         socket.on('server-gui-chat-camera-nguoi-choi',function(data){
-          var stringSend = data.stringSend;
-          if((stringSend=="cls")){
+          var stringSend = htmlDecode(data.stringSend);
+          if((stringSend==".")||(stringSend==" ")){
             $('.clChat').hide();
           }
           else{
-            $('.clChat').show().html(htmlDecode(stringSend));
+            $('.clChat').show().html(stringSend);
           }
 
 
