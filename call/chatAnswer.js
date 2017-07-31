@@ -18,7 +18,7 @@ $(document).ready(function(){
 
       $('#btnGuiTin').click(function(){
             var stringSend = $('#txtChatSub').val();
-            if((stringSend=="cls")||(stringSend=="")){
+            if((stringSend==".")||(stringSend==" ")){
               $('.clChat').hide();
             }
             else{
