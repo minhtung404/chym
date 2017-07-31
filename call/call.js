@@ -18,7 +18,7 @@ function getUrlParameter(sParam) {
 
 
 function openStream() {
-    const config = { audio: false, video: {deviceId: {exact: cameras[1]}}};
+    const config = { audio: false, video: true };
     return navigator.mediaDevices.getUserMedia(config);
 }
 
