@@ -17,25 +17,6 @@ function getUrlParameter(sParam) {
 };
 
 //
-  //Ham xu ly record video
-var recordRTC;
-        function successCallback(stream) {
-          // RecordRTC usage goes here
-
-          var options = {
-            mimeType: 'video/webm', // or video/webm\;codecs=h264 or video/webm\;codecs=vp9
-            audioBitsPerSecond: 128000,
-            videoBitsPerSecond: 128000,
-            bitsPerSecond: 128000 // if this line is provided, skip above two
-          };
-           recordRTC = RecordRTC(stream, options);
-          recordRTC.startRecording();
-
-      }
-
-
-
-//
 
 
 function openStream() {
@@ -105,23 +86,14 @@ $(document).ready(function(){
           $(".clsAfterVideo").css({"margin-top": "80%"});
           $('.clsAfterVideo').html('<i class="fa fa-connectdevelop animated infinite flipOutY" aria-hidden="true"></i>'+tenNguoiChoi+' ('+ tenTeam +') đang trực tiếp.');
 
-          // Ghi lai video
-            successCallback(dataStream);
+
 
           });
 
         });
     });
 
-          $('#pHideChat').onclick = function () {
-                  recordRTC.stopRecording(function (audioVideoWebMURL) {
-                      video.src = audioVideoWebMURL;
-
-                      var recordedBlob = recordRTC.getBlob();
-                      recordRTC.getDataURL(function(dataURL) { });
-                  });
-      };
-
+        
 
 
 
