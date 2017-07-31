@@ -16,6 +16,26 @@ function getUrlParameter(sParam) {
     }
 };
 
+//
+  //Ham xu ly record video
+
+        function successCallback(stream,recordRTC) {
+          // RecordRTC usage goes here
+
+          var options = {
+            mimeType: 'video/webm', // or video/webm\;codecs=h264 or video/webm\;codecs=vp9
+            audioBitsPerSecond: 128000,
+            videoBitsPerSecond: 128000,
+            bitsPerSecond: 128000 // if this line is provided, skip above two
+          };
+          recordRTC = RecordRTC(stream, options);
+          recordRTC.startRecording();
+      }
+
+
+
+//
+
 
 function openStream() {
     const config = { audio: false, video: true };
@@ -34,17 +54,17 @@ function playStream(idVideoTag, stream) {
 
 
 $(document).ready(function(){
-               
-    
-    var confidStunTwili = {'iceServers': 
+    var recordRTC;
+
+    var confidStunTwili = {'iceServers':
     [{"url":"stun:global.stun.twilio.com:3478?transport=udp"},
     {"url":"turn:global.turn.twilio.com:3478?transport=udp","username":"0c498ca5e28778a8df0f9c64e9e14725e6a716faa56302a3d171de49b7a65143","credential":"Fe1R00p/o7fesG/EPcgFL4h14yviMkozfHDtkV3uf90="},
     {"url":"turn:global.turn.twilio.com:3478?transport=tcp","username":"0c498ca5e28778a8df0f9c64e9e14725e6a716faa56302a3d171de49b7a65143","credential":"Fe1R00p/o7fesG/EPcgFL4h14yviMkozfHDtkV3uf90="},
     {"url":"turn:global.turn.twilio.com:443?transport=tcp","username":"0c498ca5e28778a8df0f9c64e9e14725e6a716faa56302a3d171de49b7a65143","credential":"Fe1R00p/o7fesG/EPcgFL4h14yviMkozfHDtkV3uf90="}]} /* Sample servers, please use appropriate ones */
-    
+
         //openCamera();
         var peer = new Peer({
-        
+
            host:'peerservermemo.herokuapp.com',
            secure:true,
            port:443,
@@ -56,20 +76,20 @@ $(document).ready(function(){
      var  sttCamera = getUrlParameter('stt');
      var  tenNguoiChoi = getUrlParameter('tenNguoiChoi');
      var  tenTeam = getUrlParameter('tenTeam');
-     
-     
-     
+
+
+
     peer.on('open',function(codePeer){
          var codePeer = codePeer;
          console.log(codePeer);
           console.log(socketId);
           console.log(sttCamera);
-          var objPeerCnn = {socketId:socketId,sttCamera:sttCamera,codePeer:codePeer};  
-          socket.emit("subadmin-status-camera",objPeerCnn);   
-             
-            
+          var objPeerCnn = {socketId:socketId,sttCamera:sttCamera,codePeer:codePeer};
+          socket.emit("subadmin-status-camera",objPeerCnn);
+
+
     });
-    
+
     // Nguoi nhan
     peer.on("call",call=>{
         openStream().then(stream=>{
@@ -83,12 +103,25 @@ $(document).ready(function(){
           $(".clsAfterVideo").css({"color":"green"});
           $(".clsAfterVideo").css({"margin-top": "80%"});
           $('.clsAfterVideo').html('<i class="fa fa-connectdevelop animated infinite flipOutY" aria-hidden="true"></i>'+tenNguoiChoi+' ('+ tenTeam +') đang trực tiếp.');
+
+          // Ghi lai video
+            successCallback(dataStream,recordRTC);
+
           });
 
         });
     });
-    
-    
-    
-        
+
+          $('#pHideChat').onclick = function () {
+                  recordRTC.stopRecording(function (audioVideoWebMURL) {
+                      video.src = audioVideoWebMURL;
+
+                      var recordedBlob = recordRTC.getBlob();
+                      recordRTC.getDataURL(function(dataURL) { });
+                  });
+      };
+
+
+
+
 });
