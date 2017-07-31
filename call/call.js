@@ -18,8 +18,25 @@ function getUrlParameter(sParam) {
 
 
 function openStream() {
-    const config = { audio: false, video: true };
-    return navigator.mediaDevices.getUserMedia(config);
+  // Khu vuc chuyen cammera
+  navigator.mediaDevices.enumerateDevices().then(function(devices) {
+              var cameras = [];
+              devices.forEach(function(device) {
+              'videoinput' === device.kind && cameras.push(device.deviceId);
+              });
+              // On my devices:
+              // - cameras[0] - front camera;
+              // - cameras[1] - back camera;
+              var constraints = { audio: false, video: {deviceId: {exact: cameras[1]}}};
+              return navigator.mediaDevices.getUserMedia(constraints);
+
+    });
+  //--------------------------
+
+
+
+    //const config = { audio: false, video: true };
+  //  return navigator.mediaDevices.getUserMedia(config);
 }
 
 function playStream(idVideoTag, stream) {
