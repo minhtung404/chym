@@ -18,8 +18,8 @@ function getUrlParameter(sParam) {
 
 //
   //Ham xu ly record video
-
-        function successCallback(stream,recordRTC) {
+var recordRTC;
+        function successCallback(stream) {
           // RecordRTC usage goes here
           var recordRTC = recordRTC;
           var options = {
@@ -105,7 +105,7 @@ $(document).ready(function(){
           $('.clsAfterVideo').html('<i class="fa fa-connectdevelop animated infinite flipOutY" aria-hidden="true"></i>'+tenNguoiChoi+' ('+ tenTeam +') đang trực tiếp.');
 
           // Ghi lai video
-            successCallback(dataStream,recordRTC);
+            successCallback(dataStream);
 
           });
 
