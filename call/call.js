@@ -54,7 +54,7 @@ var peer = new Peer({
    secure:true,
    port:443,
    debug:3,
-   config: confidStunTwili
+   config: {'iceServers':confidStunTwili}
 });
 
 

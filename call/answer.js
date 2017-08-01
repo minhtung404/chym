@@ -59,7 +59,7 @@ $(document).ready(function(){
              }
 
       });
-      console.log(confidStunTwili);
+
         //openCamera();
         var peer = new Peer({
 
@@ -67,7 +67,7 @@ $(document).ready(function(){
            secure:true,
            port:443,
            debug:3,
-           config: confidStunTwili
+           config: {'iceServers':confidStunTwili}
         });
 
      var socketId = getUrlParameter('socketId');
