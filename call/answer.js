@@ -59,7 +59,7 @@ $(document).ready(function(){
              }
 
       });
-      
+      console.log(confidStunTwili);
         //openCamera();
         var peer = new Peer({
 
