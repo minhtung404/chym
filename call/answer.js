@@ -43,12 +43,23 @@ function playStream(idVideoTag, stream) {
 $(document).ready(function(){
 
 
-    var confidStunTwili = {'iceServers':
-  [{"url":"stun:global.stun.twilio.com:3478?transport=udp"},
-  {"url":"turn:global.turn.twilio.com:3478?transport=udp","username":"d0832e73c907a021f91ef60715a792185f1e5cd85d6e5aacaddbfdcdbddd8ddc","credential":"QYedBzzdWiUEq5sIc1rxdi7pQNWlStZi9IFwmaVC6us="},
-  {"url":"turn:global.turn.twilio.com:3478?transport=tcp","username":"d0832e73c907a021f91ef60715a792185f1e5cd85d6e5aacaddbfdcdbddd8ddc","credential":"QYedBzzdWiUEq5sIc1rxdi7pQNWlStZi9IFwmaVC6us="},
-  {"url":"turn:global.turn.twilio.com:443?transport=tcp","username":"d0832e73c907a021f91ef60715a792185f1e5cd85d6e5aacaddbfdcdbddd8ddc","credential":"QYedBzzdWiUEq5sIc1rxdi7pQNWlStZi9IFwmaVC6us="}]
-}
+  var confidStunTwili;
+
+  $.ajax({
+                url: "https://sturnservertwioli.herokuapp.com/",
+                                  type:"GET",
+           dataType: "JSON",
+           async:false,
+           success: function(data) {
+
+                 confidStunTwili = data;
+             },
+           error: function(jqXHR, textStatus, errorThrown) {
+                 console.log(jqXHR + "tex: "+textStatus + "err:"+ errorThrown);
+             }
+
+      });
+      
         //openCamera();
         var peer = new Peer({
 
