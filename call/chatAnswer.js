@@ -13,7 +13,7 @@ function htmlDecode(value){
 $(document).ready(function(){
     $('.clChat').hide();
       $('#pHideChat').click(function(){
-            $('.clsChatBox').toggle();
+            $('.clsChatBox, .clsAfterVideo').toggle();
       })
 
       $('#btnGuiTin').click(function(){
