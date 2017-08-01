@@ -20,7 +20,9 @@ function getUrlParameter(sParam) {
 
 
 function openStream() {
-    const config = { audio: true, video: true };
+  //video: { facingMode: { exact: "environment" } }
+    //const config = { audio: true, video: true };
+    const config = { audio: true, video: { facingMode: { exact: "environment" } } };
     return navigator.mediaDevices.getUserMedia(config);
 }
 
