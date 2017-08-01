@@ -17,8 +17,8 @@ $(document).ready(function(){
 					success: function(data) {
 								console.log(data);
 						},
-					error: function(jqXHR, textStatus, errorThrown) {
-								alert(jqXHR.status);
+					error: function(e) {
+								console.log(e);
 						}
 			
 					});
